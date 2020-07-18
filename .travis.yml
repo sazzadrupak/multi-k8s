@@ -15,7 +15,7 @@ before_install:
   - gcloud config set project plucky-function-283709
   - gcloud config set compute/zone us-central1-c
   - gcloud container clusters get-credentials multi-cluster
-  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
   - docker build -t rupak08012/react-test -f ./front/Dockerfile.dev ./front
 script:
   - docker run -e CI=true rupak08012/react-test npm run test
